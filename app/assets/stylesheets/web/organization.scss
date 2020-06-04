@@ -1,0 +1,25 @@
+.organizations-content{
+  width: 90%;
+  margin: 0 auto;
+  ul{
+    width: 100%;
+    margin: 0 auto;
+    list-style: none;
+    li{
+      border: 0.1em solid #EEEEEE;
+      .title{
+        background-color: #f2dd91;
+        padding: 0.4em 1em;
+        margin: 0;
+      }
+      .organization-content{
+        padding: 1em;
+        .organization-item{
+          display: inline-block;
+          padding: 0 1em;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+}

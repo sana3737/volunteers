@@ -1,0 +1,38 @@
+= render partial: "admin/shared/header"
+.wrapper
+  .container
+    p
+       = link_to '団体を作成', new_admin_organization_path, class: "btn btn-info", role:"button"
+    -if @organizations.count > 0
+      table.table
+        tr
+          th
+            | 団体ID
+          th
+            | カテゴリ
+          th
+            | 名前
+          th
+            | 登録日
+          th
+            | 更新日
+          th
+            |
+
+        -@organizations.each do |organization|
+          tr
+            td
+              = organization.id
+            td
+              |
+            td
+              = organization.name
+            td
+              = organization.created_at.strftime("%Y年%m月%d日 %H時%M分")
+            td
+              = organization.updated_at.strftime("%Y年%m月%d日 %H時%M分")
+            td
+             = link_to "詳細", admin_organization_path(id: organization.id)
+    -else
+      p
+        | 団体はまだ登録されていません。

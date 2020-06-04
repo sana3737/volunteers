@@ -1,0 +1,25 @@
+= stylesheet_link_tag "bootstrap"
+nav.navbar.navbar-default
+  ul.nav.navbar-nav
+    li
+      = link_to "管理画面", "/admin", class: "navbar-brand"
+    li.dropdown
+      = link_to "#", class:"dropdown-toggle",data: { toggle: "dropdown"} do
+        | 記事管理
+      ul.dropdown-menu
+        li
+          = link_to "記事一覧", admin_articles_path
+        li
+          = link_to "ピックアップ記事", pick_up_list_admin_articles_path
+    li.dropdown
+      = link_to "#", class:"dropdown-toggle",data: { toggle: "dropdown"} do
+        | 団体管理
+      ul.dropdown-menu
+        li
+          = link_to "団体一覧", admin_organizations_path
+    li.dropdown
+      = link_to "#", class:"dropdown-toggle",data: { toggle: "dropdown"} do
+        | link
+      ul.dropdown-menu
+        li
+          = link_to "ログアウト", destroy_admin_user_session_path, method: :delete

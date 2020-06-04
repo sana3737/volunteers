@@ -1,0 +1,129 @@
+
+.cover-magazine-box {
+  width: 100%;
+  padding-bottom:32px;
+  margin: 0;
+  display: block;
+  position: relative;
+
+  .cover-magazine-image {
+    width: 100%;
+    height: 150px;
+    margin: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #fff;
+  }
+}
+
+.cover-magazine-box .magazine-title-box {
+  background-color: #fff;
+  margin: 0 10px;
+  border: 1px solid #dfe7f3;
+  border-radius: 5px;
+  padding:10px;
+  margin-top: -30px;
+
+
+  .title-box {
+    margin: auto;
+    font-size: 14px;
+    line-height: 1.29;
+    text-align: justify;
+    color: #002860;
+    font-weight: bold;
+    padding: 0;
+    border:0;
+  }
+
+  .user-box {
+    width: 100%;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items:center;/*--- safari（PC）用 ---*/
+    align-items:center;
+    margin-bottom: 0;
+
+    .user-image-box > .image {
+      width: 24px;
+      height: 24px;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+  }
+}
+
+.magazines-box {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.magazines-box > .footer-box {
+  text-align: center;
+  margin-top:15px;
+}
+
+.magazine-box {
+  background-color: #ffffff;
+  width: 190px;
+  margin: 0;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.magazine-box > .image-box {
+  width: 100%;
+}
+
+.magazine-box > .image-box > .image {
+  width: 100%;
+  height:112px;
+  object-fit: cover;
+}
+
+.magazine-box > .title-box {
+  width: 100%;
+  min-height: 40px;
+  margin: 0;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 0;
+  border: 0;
+  font-size: 13px;
+  line-height: 18px;
+  color : #002860;
+}
+
+.magazine-box  > .user-box {
+  width: 100%;
+  height: 24px;
+  margin-bottom: 0;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items:center;/*--- safari（PC）用 ---*/
+  align-items:center;
+}
+
+.magazine-box  > .user-box > .user-image-box > .image {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.magazine-box  > .user-box > .user-name-box {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: normal;
+  color : #63748b;
+
+}
+
+.magazine-box  > .user-box > .user-badge-box {
+  margin-left: 4px;
+}

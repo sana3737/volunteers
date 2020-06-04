@@ -1,0 +1,16 @@
+= stylesheet_link_tag 'web/shared'
+header
+  .site_banner
+    =image_tag "logo.png"
+  ul.menu-bar
+    li
+      = link_to "ホーム", root_path
+    li
+      = link_to "ボランティア探す"
+    li
+      = link_to "団体調べる", organizations_path
+
+    li
+      = link_to "コラム", columns_path
+    li
+      = link_to "インタビュー", interviews_path

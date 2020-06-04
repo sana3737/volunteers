@@ -1,0 +1,9 @@
+= render partial: "magazine/shared/header"
+.category-descrption
+  | ヘルパーで表示
+  -if @articles.present?
+    = render partial: "magazine/shared/article_list", local: {articles: @articles}
+  -else
+    p
+      | 記事がまだありません
+      =link_to "他の記事を見てよう",""

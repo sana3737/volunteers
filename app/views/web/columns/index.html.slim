@@ -1,0 +1,14 @@
+= stylesheet_link_tag 'web/column'
+.wrapper
+  = render partial: "web/shared/header"
+  .sub-title
+    h2
+      | コラム
+    p
+      | 〜ボランティアのリアルを発信〜
+  .pankuzu
+    = link_to "ホーム", root_path
+    |  >
+    = link_to "コラム一覧", "#"
+  = render partial: "web/shared/articles_list"
+  = render partial: "web/shared/footer"

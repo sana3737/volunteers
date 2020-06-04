@@ -1,0 +1,21 @@
+-if @organizations.count>0
+  ul
+    - @organizations.each do |organization|
+      li
+        h3.title
+          = organization.name
+        .organization-content
+          .organization-item
+            .image
+              = image_tag("350x240.png")
+          .organization-item
+            .description
+              = organization.description
+            .area
+              |　活動場所 :
+              =  display_prefeature(organization.prefecture_id)
+  p
+    = paginate @organizations
+-else
+  p
+    | 団体が存在しません。

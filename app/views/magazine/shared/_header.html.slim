@@ -1,0 +1,13 @@
+header
+  .head-box
+    = link_to "/magazine/" do
+      h1.head-box-item
+        | Volunteers magazine
+    nav.category.head-box-item
+      ul.menu-bar
+        li
+          = link_to "Column", magazine_articles_path(category: "column")
+        li
+          = link_to "Interview", magazine_articles_path(category: "interview")
+        li
+          = link_to "News", magazine_articles_path(category: "news")

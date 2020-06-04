@@ -1,0 +1,22 @@
+= form_for(@organization, url: url) do |f|
+  .row
+    .col-md-4
+      = f.label :prefecture_id, "活動都道府県"
+      = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture,class: "form-control"
+  .row
+    .col-md-10
+      = f.label :name, "団体名"
+      = f.text_field :name, class: "form-control"
+  .row
+    .col-md-12.thumbnail-box
+      = f.label :thumbnail,"サブネイル画像"
+      = f.file_field :thumbnail, multiple: true
+      = image_tag("", class: "thumbnail")
+  .row
+    .col-md-12
+      = f.label :description, "説明"
+      = f.text_area :description, class: "form-control"
+  .row
+    .col-md-4
+      = submit_tag "登録", class: "btn btn-default"
+= javascript_include_tag "admin/organizations/edit"

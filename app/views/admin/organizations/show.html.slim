@@ -1,0 +1,54 @@
+= render partial: "admin/shared/header"
+.wrapper
+  .container
+    - organization = @organization || ""
+    .organization
+      table.table
+        tr
+          th
+            | 記事ID
+          td
+            = organization.id
+        tr
+          th
+            | ラベル
+          td
+            |
+        tr
+          th
+            | カテゴリ
+          td
+            |
+        tr
+          th
+            | 都道府県
+          td
+            = display_prefeature(organization.prefecture_id)
+        tr
+          th
+            | 団体名
+          td
+            = organization.name
+        tr
+          th
+            | メイン画像
+
+          td
+            = image_tag(organization.thumbnail._280x280.url)
+        tr
+          th
+            | 説明
+          td
+            = organization.description
+        tr
+          th
+            | 作成日
+          td
+            = organization.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        tr
+          th
+            | 変更日
+          td
+            = organization.updated_at.strftime("%Y年%m月%d日 %H時%M分")
+    = link_to "変更", edit_admin_organization_path(id: organization.id), class: "btn btn-default"
+    = link_to "削除", admin_organization_path(id: organization.id), :method => :delete,  data: {confirm: "本当に削除しますか？"}, class: "btn btn-default"

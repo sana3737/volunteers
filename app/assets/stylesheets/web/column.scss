@@ -1,0 +1,71 @@
+//共通
+.sub-title{
+  text-align: center;
+  background: #EEEEEE;
+  margin: 2em 0 0;
+  font-weight: 800;
+  padding: 0.2em 0;
+  font-family:"ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+}
+
+
+
+.articles{
+  width: 75%;
+  ul{
+    list-style: none;
+    .article-box{
+      display: table;
+      table-layout: fixed;
+      padding: 10px 1em;
+      .article-item{
+        display: table-cell;
+        vertical-align: top;
+        padding: 0 2%;
+      }
+      .article-thumnail{
+        width: 40%;
+      }
+      .article-text{
+        width: 60%;
+        padding-top: 1em;
+        .title{
+          margin: 0;
+        }
+        .description{
+          padding-top: 1em;
+        }
+      }
+    }
+  }
+}
+.newest-article-list{
+  width: 25%;
+  margin: 0 auto;
+  .newest-articles{
+    width: 90%;
+    margin: 0 auto;
+    h3{
+      text-align: center;
+    }
+    ul{
+        list-style: none;
+        .article-box{
+          padding: 1em 0;
+          .article-text{
+            padding-top: 1em;
+            .title{
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+.articles-list{
+  width: 100%;
+  .article-list{
+    float: left;
+  }
+}

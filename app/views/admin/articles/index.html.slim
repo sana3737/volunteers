@@ -1,0 +1,12 @@
+= render partial: "admin/shared/header"
+.wrapper
+  .container
+    p
+       = link_to '記事を作成', new_admin_article_path, class: "btn btn-info", role:"button"
+    -if @articles.count > 0
+      = render partial: "admin/shared/article_list"
+    -else
+      p
+        | 記事はまだありません。
+    p
+      = paginate @articles

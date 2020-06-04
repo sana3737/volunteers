@@ -1,0 +1,36 @@
+table.table
+  tr
+    th
+      | 記事ID
+    th
+      | ラベル
+    th
+      | カテゴリ
+    th
+      | タイトル
+    th
+      | メイン画像
+    th
+      | 作成日
+    th
+      | 変更日
+    th
+
+  -@articles.each do |article|
+    tr
+      td
+        = article.id
+      td
+        = display_pick_up(article)
+      td
+        = display_category(article.category)
+      td
+        = article.title
+      td
+        = image_tag(article.main_image._100x100.url, class: "main-image")
+      td
+        = article.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      td
+        = article.updated_at.strftime("%Y年%m月%d日 %H時%M分")
+      td
+       = link_to "詳細", admin_article_path(id: article.id)

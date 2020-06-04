@@ -1,0 +1,48 @@
+= render partial: "admin/shared/header"
+.wrapper
+  .container
+    - article = @article || ""
+    .article
+      table.table
+        tr
+          th
+            | 記事ID
+          td
+            = article.id
+        tr
+          th
+            | ラベル
+          td
+            = display_pick_up(article)
+        tr
+          th
+            | カテゴリ
+          td
+            = display_category(article.category)
+        tr
+          th
+            | タイトル
+          td
+            = article.title
+        tr
+          th
+            | メイン画像
+          td
+            = image_tag(article.main_image._280x280.url)
+        tr
+          th
+            | 内容
+          td
+            = article.description
+        tr
+          th
+            | 作成日
+          td
+            = article.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        tr
+          th
+            | 変更日
+          td
+            = article.updated_at.strftime("%Y年%m月%d日 %H時%M分")
+    = link_to "変更", edit_admin_article_path(id: article.id), class: "btn btn-default"
+    = link_to "削除", admin_article_path(id: article.id), :method => :delete,  data: {confirm: "本当に削除しますか？"}, class: "btn btn-default"

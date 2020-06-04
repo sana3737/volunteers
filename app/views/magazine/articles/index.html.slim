@@ -1,0 +1,20 @@
+= render partial: "magazine/shared/header"
+.container
+  .category-descrption
+    | ヘルパーで表示
+    -if @articles.present?
+      ul
+        - @articles.each do |article|
+          li.article-box
+            .article
+              .article-thumnail
+                = image_tag("")
+              .article-text
+                h3.title
+                  = article.title
+                p
+                  = article.description
+    -else
+      p
+        | 記事がまだありません
+        =link_to "他の記事を見てよう", magazine_articles_path

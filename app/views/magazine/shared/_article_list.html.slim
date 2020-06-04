@@ -1,0 +1,11 @@
+ul
+  - articles.each do |article|
+    li.article-box
+      .article
+        .article-thumnail
+          = image_tag("150×150.png")
+        .article-text
+          h3.title
+            = article.title
+          p
+            = article.description

@@ -1,0 +1,24 @@
+= stylesheet_link_tag 'web/organization'
+.wrapper
+  = render partial: "web/shared/header"
+  .pankuzu
+    = link_to "ホーム", root_path
+    |  >
+    = link_to "団体一覧", "#"
+  .organizations-content
+    .search-box
+      h2
+        |　ボランティア団体検索
+      .search-area
+        = search_form_for @cond do |f|
+          .search-item
+            = f.label :name_cont, "団体名"
+            = f.search_field :name_cont
+          .search-item
+            = f.label :prefeature_id, "活動場所"
+            = f.collection_select :prefecture_id_in, Prefecture.all, :id, :prefecture
+          .search-item
+            = submit_tag "検索"
+    .organizations-list
+      = render partial: "organizations_list",locals: {organizations: @organizations}
+    = render partial: "web/shared/footer"

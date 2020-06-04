@@ -1,0 +1,115 @@
+*{
+  box-sizing: border-box;
+  font-family: "Sawarabi Gothic";
+  img{
+    width: 100%;
+  }
+}
+
+//footerを下部固定
+html {
+	position: relative;
+	min-height: 100%;
+	padding-bottom: 100px;
+	box-sizing: border-box;
+}
+footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+}
+
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.wrapper{
+  width: 90%;
+  margin: 0 auto;
+}
+header{
+  .site_banner{
+    width: 60%;
+    margin: 3em auto;
+  }
+  .menu-bar{
+    list-style: none;
+    display: table;
+    table-layout: fixed;
+    width: 85%;
+    margin: 0 auto;
+    li{
+      display: table-cell;
+      border-left: 1px solid #4860B5;
+      text-align: center;
+      vertical-align:middle;
+      &:last-child{
+        border-right: 1px solid #4860B5;
+      }
+      a{
+        text-decoration: none;
+        color: #4860B5;
+        width: 100%;
+        padding: 1em 0.5em;
+        &:hover{
+          color: #0027A5;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.pankuzu{
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  a{
+    color: #4860B5;
+    width: 100%;
+    padding: 1em 0.5em;
+    &:hover{
+      color: #0027A5;
+      font-weight: bold;
+    }
+  }
+}
+
+.footer{
+  margin: 20em auto 0;
+  padding: 1em;
+  background: #f2dd91;
+  .footer-box{
+    display: inline-block;
+    width:50%;
+  }
+  .site_banner{
+    width: 60%;
+    background: #fff;
+    padding: 1em;
+  }
+  .footer-item{
+    display: inline-block;
+    width:50%;
+  }
+  .menu{
+    vertical-align:top;
+    border-right: 0.1em dotted #4860B5;
+  }
+  .information{
+    vertical-align:top;
+  }
+  ul{
+    list-style: none;
+    li{
+      padding: 0.25em 0;
+    }
+  }
+  a{
+    color: #4860B5;
+  }
+}

@@ -1,0 +1,89 @@
+= nested_form_for(@article, url: url, multiple: true) do |f|
+  .row
+    .col-md-4
+      = f.label :pick_up, "ピックアップ"
+      = f.check_box :pick_up
+  .row
+    .col-md-4
+      = f.label :category, "カテゴリ"
+      = f.select :category, [["その他", 0],["コラム", 1], ["インタビュー", 2], ["お知らせ", 3]], class: "form-control"
+  .row
+    .col-md-10
+      h2.title-box
+        | 記事のタイトル
+      = f.text_field :title, class: "form-control"
+  .row
+    .col-md-10
+      h2.title-box
+        | 記事の説明
+      = f.text_area :description, class: "form-control"
+  .row
+    .col-md-10
+      h2.title-box
+        | 記事のカバー画像
+  .row
+    .col-md-12.main-image-box
+      = f.file_field :main_image, multiple: true
+      = image_tag("", class: "main-image")
+  .row
+    .col-md-10
+      .form-group
+        = f.fields_for :article_chapter_blocks do |article_chapter_blocks_form|
+          .panel.panel-default
+            .panel-heading
+              .row
+                .col-md-6
+                    .order-box.steps
+                      | ブロック
+                      span
+                    = article_chapter_blocks_form.link_to_remove "このブロックを削除", class: "btn-delete"
+            .panel-body
+              .form-group
+                = article_chapter_blocks_form.text_field :title, class: "form-control", placeholder: "大見出し"
+              .form-group
+                div id = "#{article_chapter_blocks_form.options[:child_index]}-elements"
+                  = article_chapter_blocks_form.fields_for :article_collections do |article_collections_form|
+                    p
+                      = article_collections_form.link_to_remove "この要素を削除", class: "btn-delete"
+                    div id = "#{article_collections_form.options[:child_index]}-link"
+                      .panel.panel-default
+                        .panel-body
+                          .form-group
+                            .row
+                              .col-md-12
+                                = article_collections_form.label :link, "リンク"
+                                = article_collections_form.text_field :link, class: "form-control"
+                    div id = "#{article_collections_form.options[:child_index]}-text"
+                      .panel.panel-default
+                        .panel-body
+                          .form-group
+                            .row
+                              .col-md-12
+                                = article_collections_form.label :title, "タイトル"
+                                = article_collections_form.text_field :title, class: "form-control"
+                            .row
+                              .col-md-12
+                                = article_collections_form.label :content, "テキスト"
+                                = article_collections_form.text_area :content, class: "form-control"
+                    div id = "#{article_collections_form.options[:child_index]}-image"
+                      .panel.panel-default
+                        .panel-body
+                          .form-group
+                            .row
+                              .col-md-12
+                                = article_collections_form.file_field :chapter_image, multiple: true
+                                = image_tag("", class: "main-image")
+                    = article_collections_form.hidden_field :type_code, id: "#{article_collections_form.options[:child_index]}-element-type"
+              .row
+                .col-md-4
+                  = article_chapter_blocks_form.link_to_add "リンクを追加", :article_collections, data: { target: "##{ article_chapter_blocks_form.options[:child_index]}-elements" }, class: "btn-add", onClick: "addNewElement('link');"
+                .col-md-4
+                  = article_chapter_blocks_form.link_to_add "テキストを追加", :article_collections, data: { target: "##{ article_chapter_blocks_form.options[:child_index]}-elements" }, class: "btn-add", onClick: "addNewElement('text');"
+                .col-md-4
+                  = article_chapter_blocks_form.link_to_add "画像を追加", :article_collections, data: { target: "##{ article_chapter_blocks_form.options[:child_index]}-elements" }, class: "btn-add", onClick: "addNewElement('image');"
+    .row
+      .col-md-10
+      = f.link_to_add "ブロックを追加", :article_chapter_blocks, class: "btn-add"
+  = submit_tag "登録", class: "btn btn-default"
+= javascript_include_tag "admin/articles/article"
+= javascript_include_tag "admin/articles/edit"
